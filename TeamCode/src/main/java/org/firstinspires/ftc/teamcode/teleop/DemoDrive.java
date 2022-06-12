@@ -121,7 +121,7 @@ public class DemoDrive extends LinearOpMode {
                 new Pose2d(
                         leftY * driveSpeed,  //left_stick_y
                         -leftX * driveSpeed,  //left_stick_x
-                        rightX * driveSpeed  //right_stick_x
+                        -rightX * driveSpeed  //right_stick_x
                 )
         );
     }

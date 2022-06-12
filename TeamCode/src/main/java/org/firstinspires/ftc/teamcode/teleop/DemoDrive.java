@@ -16,7 +16,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
 
-@TeleOp(group = "drive", name = "STC Demo")
+@TeleOp(group = "drive", name = "STC Drive")
 @Config
 public class DemoDrive extends LinearOpMode {
 
@@ -57,9 +57,9 @@ public class DemoDrive extends LinearOpMode {
         telemetry = new MultipleTelemetry(telemetry, FtcDashboard.getInstance().getTelemetry());
 
         drive = new SampleMecanumDrive(hardwareMap);
-        lift = new DcMotorServo(hardwareMap,"intake2",13.79f,28);
+        lift = new DcMotorServo(hardwareMap,"lift",13.79f,28);
         intake = hardwareMap.get(DcMotorEx.class, "intake");
-        intake2 = hardwareMap.get(DcMotorEx.class,"lift");
+        intake2 = hardwareMap.get(DcMotorEx.class,"intake2");
         cupa = hardwareMap.get(Servo.class, "cupa");
 
         intake2.setDirection(DcMotorSimple.Direction.REVERSE);

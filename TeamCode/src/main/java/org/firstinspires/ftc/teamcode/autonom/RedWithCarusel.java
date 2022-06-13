@@ -11,8 +11,8 @@ import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
 import org.firstinspires.ftc.teamcode.teleop.DcMotorServo;
 import org.firstinspires.ftc.teamcode.trajectorysequence.TrajectorySequence;
 
-@Autonomous(group = "drive", name = "STC Auto")
-public class DemoAutonom extends LinearOpMode {
+@Autonomous(group = "drive", name = "red with carusel")
+public class RedWithCarusel extends LinearOpMode {
 
     DcMotorServo lift;
     Servo cupa;
@@ -25,7 +25,7 @@ public class DemoAutonom extends LinearOpMode {
     public void runOpMode() throws InterruptedException {
         SampleMecanumDrive drive = new SampleMecanumDrive(hardwareMap);
 
-        Pose2d startPose = new Pose2d(11.5, -62.4, Math.toRadians(90));
+        Pose2d startPose = new Pose2d(-35.5, -62.4, Math.toRadians(90));
 
         drive.setPoseEstimate(startPose);
 
@@ -35,18 +35,20 @@ public class DemoAutonom extends LinearOpMode {
         cupa = hardwareMap.get(Servo.class, "cupa");
 
         TrajectorySequence trajSeq = drive.trajectorySequenceBuilder(startPose)
-                .splineTo(new Vector2d(-6.5, -38.5), Math.toRadians(110))
-                .forward(6)
-                .addTemporalMarker(2.5, () -> cupa.setPosition(0.8))
-                .addTemporalMarker(4, () -> {
-                    cupa.setPosition(1);
-                    liftPosition = 0;
-                })
+                .splineToLinearHeading(new Pose2d(-59, -59, Math.toRadians(135)), Math.toRadians(225))
+                .addTemporalMarker(2.3, () -> carusel.setPower(0.5))
+                .addTemporalMarker(5.3, () -> carusel.setPower(0))
+                .waitSeconds(3)
+                .setTangent(0)
+                .splineToLinearHeading(new Pose2d(-8.3, -33., Math.toRadians(110)), Math.toRadians(90))
+                .addTemporalMarker(6.7, () -> liftPosition = 1400)
+                .addTemporalMarker(9.1, () -> cupa.setPosition(0.7))
+                .addTemporalMarker(10, () -> cupa.setPosition(1))
+                .addTemporalMarker(10.5, () -> liftPosition = 0)
                 .waitSeconds(1)
                 .setReversed(true)
-                .splineTo(new Vector2d(11.5, -60.4), Math.toRadians(0))
-                .back(28)
-                .strafeRight(25)
+                .splineTo(new Vector2d(11.5, -60), Math.toRadians(0))
+                .splineTo(new Vector2d(37.5, -60), Math.toRadians(0))
                 .build();
 
         waitForStart();
@@ -54,12 +56,17 @@ public class DemoAutonom extends LinearOpMode {
         if (isStopRequested()) return;
 
         cupa.setPosition(1);
-        liftPosition = 1400;
+        liftPosition = 0;
         drive.followTrajectorySequenceAsync(trajSeq);
+        boolean savePose = true;
 
         while (opModeIsActive() && !isStopRequested()){
             drive.update();
             lift.setAngle(-liftPosition, liftSpeed);
+            if(!drive.isBusy() && savePose){
+                savePose = false;
+                PoseStorage.currentPose = drive.getPoseEstimate();
+            }
         }
     }
 }

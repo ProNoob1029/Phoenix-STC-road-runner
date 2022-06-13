@@ -6,6 +6,7 @@ import com.acmerobotics.dashboard.FtcDashboard;
 import com.acmerobotics.dashboard.config.Config;
 import com.acmerobotics.dashboard.telemetry.MultipleTelemetry;
 import com.acmerobotics.roadrunner.geometry.Pose2d;
+import com.acmerobotics.roadrunner.geometry.Vector2d;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -14,11 +15,12 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
+import org.firstinspires.ftc.teamcode.autonom.PoseStorage;
 import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
 
-@TeleOp(group = "drive", name = "STC Drive")
+@TeleOp(group = "drive", name = "red field centric")
 @Config
-public class DemoDrive extends LinearOpMode {
+public class RedFieldCentric extends LinearOpMode {
 
     //public static double left_right = 1, back_front = 1;
 
@@ -55,18 +57,20 @@ public class DemoDrive extends LinearOpMode {
     public void runOpMode() throws InterruptedException {
 
         telemetry = new MultipleTelemetry(telemetry, FtcDashboard.getInstance().getTelemetry());
-
         drive = new SampleMecanumDrive(hardwareMap);
+        drive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        drive.setPoseEstimate(PoseStorage.currentPose);
+
         lift = new DcMotorServo(hardwareMap,"lift",13.79f,28);
         intake = hardwareMap.get(DcMotorEx.class, "intake");
         intake2 = hardwareMap.get(DcMotorEx.class,"intake2");
         cupa = hardwareMap.get(Servo.class, "cupa");
+        DcMotorEx carusel = hardwareMap.get(DcMotorEx.class, "carusel");
 
         intake2.setDirection(DcMotorSimple.Direction.REVERSE);
         intake2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         intake2.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        drive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        DcMotorEx carusel = hardwareMap.get(DcMotorEx.class, "carusel");
+
 
         waitForStart();
 
@@ -117,10 +121,19 @@ public class DemoDrive extends LinearOpMode {
             rightX = -btoi(gamepad1.x) + btoi(gamepad1.b);
         else rightX = gamepad1.right_stick_x;
 
+        drive.update();
+
+        Pose2d poseEstimate = drive.getPoseEstimate();
+
+        Vector2d input = new Vector2d(
+                leftX,
+                leftY
+        ).rotated(-poseEstimate.getHeading());
+
         drive.setWeightedDrivePower(
                 new Pose2d(
-                        leftY * driveSpeed,  //left_stick_y
-                        -leftX * driveSpeed,  //left_stick_x
+                        input.getX() * driveSpeed,  //left_stick_y
+                        input.getY() * driveSpeed,  //left_stick_x
                         -rightX * driveSpeed  //right_stick_x
                 )
         );
@@ -194,6 +207,7 @@ public class DemoDrive extends LinearOpMode {
         telemetry.addData("rightFront", drive.rightFront.getPower());
         telemetry.addData("leftRear", drive.leftRear.getPower());
         telemetry.addData("rightRear", drive.rightRear.getPower());
+        telemetry.addData("heading", drive.getPoseEstimate().getHeading());
         telemetry.update();
     }
 

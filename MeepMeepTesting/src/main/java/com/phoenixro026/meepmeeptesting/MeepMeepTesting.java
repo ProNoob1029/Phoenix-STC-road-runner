@@ -20,14 +20,16 @@ public class MeepMeepTesting {
                         8.92
                 )
                 .followTrajectorySequence(drive ->
-                        drive.trajectorySequenceBuilder(new Pose2d(11.5, -62.4, Math.toRadians(90)))
-                                .splineTo(new Vector2d(-6.5, -38.5), Math.toRadians(110))
-                                .forward(6)
+                        drive.trajectorySequenceBuilder(new Pose2d(-35.5, -62.4, Math.toRadians(90)))
+                                .splineToLinearHeading(new Pose2d(-59, -59, Math.toRadians(135)), Math.toRadians(225))
+                                .waitSeconds(3)
+                                .setTangent(0)
+                                .splineToLinearHeading(new Pose2d(-8.3, -33., Math.toRadians(110)), Math.toRadians(90))
                                 .waitSeconds(1)
                                 .setReversed(true)
-                                .splineTo(new Vector2d(11.5, -62.4), Math.toRadians(0))
-                                .back(30)
-                                .strafeRight(22)
+                                .splineTo(new Vector2d(11.5, -60), Math.toRadians(0))
+                                .splineTo(new Vector2d(37.5, -60), Math.toRadians(0))
+                                //.splineToConstantHeading(new Vector2d(37.5, -32), Math.toRadians(90))
                                 .build()
                 );
 

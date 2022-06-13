@@ -37,6 +37,24 @@ public class MeepMeepTesting {
                                 .splineTo(new Vector2d(37.5, 60), Math.toRadians(0))
                                 .build()
                 );
+                /*.followTrajectorySequence(drive ->
+                drive.trajectorySequenceBuilder(new Pose2d(-35, -62.4, Math.toRadians(90)))
+                        .splineToLinearHeading(new Pose2d(-59, -59, Math.toRadians(135)), Math.toRadians(225))
+                        //.addTemporalMarker(2.3, () -> carusel.setPower(0.5))
+                        //.addTemporalMarker(5.3, () -> carusel.setPower(0))
+                        .waitSeconds(3)
+                        .setTangent(0)
+                        .splineToLinearHeading(new Pose2d(-11.67, -38, Math.toRadians(90)), Math.toRadians(90))
+                        //.addTemporalMarker(6.7, () -> liftPosition = 450)
+                        //.addTemporalMarker(9.1, () -> cupa.setPosition(0.75))
+                        //.addTemporalMarker(10, () -> cupa.setPosition(1))
+                        //.addTemporalMarker(10.5, () -> liftPosition = 0)
+                        .waitSeconds(1)
+                        .setReversed(true)
+                        .splineTo(new Vector2d(11.67, -60), Math.toRadians(0))
+                        .splineTo(new Vector2d(37.5, -60), Math.toRadians(0))
+                        .build()
+                );*/
 
         meepMeep.setBackground(MeepMeep.Background.FIELD_FREIGHTFRENZY_ADI_DARK)
                 .setDarkMode(true)

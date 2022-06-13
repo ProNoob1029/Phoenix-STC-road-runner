@@ -57,7 +57,7 @@ public class RedWithCarusel extends LinearOpMode {
                 .addTemporalMarker(5.3, () -> carusel.setPower(0))
                 .waitSeconds(3)
                 .setTangent(0)
-                .splineToLinearHeading(new Pose2d(-11.67, -38, Math.toRadians(90)), Math.toRadians(90))
+                .splineToLinearHeading(new Pose2d(-11.67, -37, Math.toRadians(90)), Math.toRadians(90))
                 .addTemporalMarker(6.7, () -> liftPosition = 950)
                 .addTemporalMarker(9.1, () -> cupa.setPosition(0.75))
                 .addTemporalMarker(10, () -> cupa.setPosition(1))
@@ -74,7 +74,7 @@ public class RedWithCarusel extends LinearOpMode {
                 .addTemporalMarker(5.3, () -> carusel.setPower(0))
                 .waitSeconds(3)
                 .setTangent(0)
-                .splineToLinearHeading(new Pose2d(-11.67, -40, Math.toRadians(90)), Math.toRadians(90))
+                .splineToLinearHeading(new Pose2d(-11.67, -38, Math.toRadians(90)), Math.toRadians(90))
                 .addTemporalMarker(6.7, () -> liftPosition = 450)
                 .addTemporalMarker(9.1, () -> cupa.setPosition(0.75))
                 .addTemporalMarker(10, () -> cupa.setPosition(1))
@@ -91,7 +91,7 @@ public class RedWithCarusel extends LinearOpMode {
 
         cupa.setPosition(1);
         liftPosition = 0;
-        drive.followTrajectorySequenceAsync(trajSeq1);
+        drive.followTrajectorySequenceAsync(trajSeq2);
         boolean savePose = true;
 
         while (opModeIsActive() && !isStopRequested()){

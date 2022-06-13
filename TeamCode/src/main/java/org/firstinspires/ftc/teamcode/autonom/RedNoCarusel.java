@@ -47,7 +47,7 @@ public class RedNoCarusel extends LinearOpMode {
                 .build();
 
         TrajectorySequence trajSeq2 = drive.trajectorySequenceBuilder(startPose)
-                .splineToLinearHeading(new Pose2d(-11.67, -38, Math.toRadians(90)), Math.toRadians(90))
+                .splineToLinearHeading(new Pose2d(-11.67, -37, Math.toRadians(90)), Math.toRadians(90))
                 .addTemporalMarker(2.5, () -> cupa.setPosition(0.75))
                 .addTemporalMarker(3.5, () -> cupa.setPosition(1))
                 .addTemporalMarker(4, () -> liftPosition = 0)
@@ -59,7 +59,7 @@ public class RedNoCarusel extends LinearOpMode {
                 .build();
 
         TrajectorySequence trajSeq1 = drive.trajectorySequenceBuilder(startPose)
-                .splineToLinearHeading(new Pose2d(-11.67, -40, Math.toRadians(90)), Math.toRadians(90))
+                .splineToLinearHeading(new Pose2d(-11.67, -38, Math.toRadians(90)), Math.toRadians(90))
                 .addTemporalMarker(2.5, () -> cupa.setPosition(0.75))
                 .addTemporalMarker(3.5, () -> cupa.setPosition(1))
                 .addTemporalMarker(4, () -> liftPosition = 0)
@@ -75,8 +75,8 @@ public class RedNoCarusel extends LinearOpMode {
         if (isStopRequested()) return;
 
         cupa.setPosition(1);
-        liftPosition = 450;
-        drive.followTrajectorySequenceAsync(trajSeq1);
+        liftPosition = 950;
+        drive.followTrajectorySequenceAsync(trajSeq2);
         boolean savePose = true;
 
         while (opModeIsActive() && !isStopRequested()){

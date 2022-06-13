@@ -10,7 +10,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 public class DcMotorServo {
     float ratio;
     int cpr;
-    float lower_limit = -(1<<30), upper_limit = +(1<<30);
+    float lower_limit = -(1<<30), upper_limit = (1<<30);
     public DcMotorEx motor;
     public int target;
     public DcMotorServo(HardwareMap h, String name, float ratio, int cpr){

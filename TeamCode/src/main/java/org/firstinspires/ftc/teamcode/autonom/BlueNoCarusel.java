@@ -11,8 +11,8 @@ import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
 import org.firstinspires.ftc.teamcode.teleop.DcMotorServo;
 import org.firstinspires.ftc.teamcode.trajectorysequence.TrajectorySequence;
 
-@Autonomous(group = "drive", name = "red no carusel")
-public class RedNoCarusel extends LinearOpMode {
+@Autonomous(group = "drive", name = "blue no carusel")
+public class BlueNoCarusel extends LinearOpMode {
 
     DcMotorServo lift;
     Servo cupa;
@@ -25,7 +25,7 @@ public class RedNoCarusel extends LinearOpMode {
     public void runOpMode() throws InterruptedException {
         SampleMecanumDrive drive = new SampleMecanumDrive(hardwareMap);
 
-        Pose2d startPose = new Pose2d(11.5, -62.4, Math.toRadians(90));
+        Pose2d startPose = new Pose2d(11.5, 62.4, Math.toRadians(270));
 
         drive.setPoseEstimate(startPose);
 
@@ -35,39 +35,39 @@ public class RedNoCarusel extends LinearOpMode {
         cupa = hardwareMap.get(Servo.class, "cupa");
 
         TrajectorySequence trajSeq3 = drive.trajectorySequenceBuilder(startPose)
-                .splineToLinearHeading(new Pose2d(-11.67, -36, Math.toRadians(90)), Math.toRadians(90))
+                .splineToLinearHeading(new Pose2d(-11.67, 36, Math.toRadians(270)), Math.toRadians(270))
                 .addTemporalMarker(2.5, () -> cupa.setPosition(0.75))
                 .addTemporalMarker(3.5, () -> cupa.setPosition(1))
                 .addTemporalMarker(4, () -> liftPosition = 0)
                 .waitSeconds(1)
                 .setReversed(true)
-                .splineTo(new Vector2d(11.67, -61), Math.toRadians(0))
-                .splineTo(new Vector2d(29.5, -61), Math.toRadians(0))
-                .splineToConstantHeading(new Vector2d(37.5, -32), Math.toRadians(90))
+                .splineTo(new Vector2d(11.67, 61), Math.toRadians(0))
+                .splineTo(new Vector2d(29.5, 61), Math.toRadians(0))
+                .splineToConstantHeading(new Vector2d(37.5, 32), Math.toRadians(270))
                 .build();
 
         TrajectorySequence trajSeq2 = drive.trajectorySequenceBuilder(startPose)
-                .splineToLinearHeading(new Pose2d(-11.67, -38, Math.toRadians(90)), Math.toRadians(90))
+                .splineToLinearHeading(new Pose2d(-11.67, 38, Math.toRadians(270)), Math.toRadians(270))
                 .addTemporalMarker(2.5, () -> cupa.setPosition(0.75))
                 .addTemporalMarker(3.5, () -> cupa.setPosition(1))
                 .addTemporalMarker(4, () -> liftPosition = 0)
                 .waitSeconds(1)
                 .setReversed(true)
-                .splineTo(new Vector2d(11.67, -61), Math.toRadians(0))
-                .splineTo(new Vector2d(29.5, -61), Math.toRadians(0))
-                .splineToConstantHeading(new Vector2d(37.5, -32), Math.toRadians(90))
+                .splineTo(new Vector2d(11.67, 61), Math.toRadians(0))
+                .splineTo(new Vector2d(29.5, 61), Math.toRadians(0))
+                .splineToConstantHeading(new Vector2d(37.5, 32), Math.toRadians(270))
                 .build();
 
         TrajectorySequence trajSeq1 = drive.trajectorySequenceBuilder(startPose)
-                .splineToLinearHeading(new Pose2d(-11.67, -40, Math.toRadians(90)), Math.toRadians(90))
+                .splineToLinearHeading(new Pose2d(-11.67, 40, Math.toRadians(270)), Math.toRadians(270))
                 .addTemporalMarker(2.5, () -> cupa.setPosition(0.75))
                 .addTemporalMarker(3.5, () -> cupa.setPosition(1))
                 .addTemporalMarker(4, () -> liftPosition = 0)
                 .waitSeconds(1)
                 .setReversed(true)
-                .splineTo(new Vector2d(11.67, -61), Math.toRadians(0))
-                .splineTo(new Vector2d(29.5, -61), Math.toRadians(0))
-                .splineToConstantHeading(new Vector2d(37.5, -32), Math.toRadians(90))
+                .splineTo(new Vector2d(11.67, 61), Math.toRadians(0))
+                .splineTo(new Vector2d(29.5, 61), Math.toRadians(0))
+                .splineToConstantHeading(new Vector2d(37.5, 32), Math.toRadians(270))
                 .build();
 
         waitForStart();

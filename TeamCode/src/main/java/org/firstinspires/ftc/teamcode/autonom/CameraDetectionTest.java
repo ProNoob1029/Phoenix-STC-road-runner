@@ -23,7 +23,7 @@ import org.openftc.easyopencv.OpenCvWebcam;
 public class CameraDetectionTest extends LinearOpMode {
 
     public static class CapstonePosition{
-        public static int Position;
+        public static int Position = 0;
     }
     OpenCvWebcam webcam;
 

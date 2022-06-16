@@ -38,7 +38,7 @@ public class RedFieldCentric extends LinearOpMode {
     int position = 0;
     int level1 = 450;
     int level2 = 950;
-    int level3 = 1350;
+    int level3 = 1500;
     int liftPosition = 0;
     int minus;
     int intake2Pos;
@@ -89,7 +89,7 @@ public class RedFieldCentric extends LinearOpMode {
             else carusel.setPower(0);
 
             if (gamepad2.x)
-                cupa.setPosition(0.80);
+                cupa.setPosition(0.70);
             else cupa.setPosition(1);
         }
     }

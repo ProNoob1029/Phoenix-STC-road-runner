@@ -68,8 +68,8 @@ public class RedWithCarusel extends LinearOpMode {
                 .addTemporalMarker(10.5, () -> liftPosition = 0)
                 .waitSeconds(1)
                 .setReversed(true)
-                .splineTo(new Vector2d(11.67, -62), Math.toRadians(0))
-                .splineTo(new Vector2d(40, -62), Math.toRadians(0))
+                .splineTo(new Vector2d(11.67, -60.5), Math.toRadians(0))
+                .splineTo(new Vector2d(40, -60.5), Math.toRadians(0))
                 .build();
 
         TrajectorySequence trajSeq2 = drive.trajectorySequenceBuilder(startPose)
@@ -86,8 +86,8 @@ public class RedWithCarusel extends LinearOpMode {
                 .addTemporalMarker(10.5, () -> liftPosition = 0)
                 .waitSeconds(1)
                 .setReversed(true)
-                .splineTo(new Vector2d(11.67, -62), Math.toRadians(0))
-                .splineTo(new Vector2d(40, -62), Math.toRadians(0))
+                .splineTo(new Vector2d(11.67, -60.5), Math.toRadians(0))
+                .splineTo(new Vector2d(40, -60.5), Math.toRadians(0))
                 .build();
 
         TrajectorySequence trajSeq1 = drive.trajectorySequenceBuilder(startPose)
@@ -104,8 +104,8 @@ public class RedWithCarusel extends LinearOpMode {
                 .addTemporalMarker(10.5, () -> liftPosition = 0)
                 .waitSeconds(1)
                 .setReversed(true)
-                .splineTo(new Vector2d(11.67, -62), Math.toRadians(0))
-                .splineTo(new Vector2d(40, -62), Math.toRadians(0))
+                .splineTo(new Vector2d(11.67, -60.5), Math.toRadians(0))
+                .splineTo(new Vector2d(40, -60.5), Math.toRadians(0))
                 .build();
 
         int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());

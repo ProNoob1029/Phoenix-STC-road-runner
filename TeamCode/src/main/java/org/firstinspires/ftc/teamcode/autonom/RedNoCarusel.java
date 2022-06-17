@@ -61,8 +61,8 @@ public class RedNoCarusel extends LinearOpMode {
                 .addTemporalMarker(4, () -> liftPosition = 0)
                 .waitSeconds(1)
                 .setReversed(true)
-                .splineTo(new Vector2d(11.67, -62), Math.toRadians(0))
-                .splineTo(new Vector2d(29.5, -62), Math.toRadians(0))
+                .splineTo(new Vector2d(11.67, -60.5), Math.toRadians(0))
+                .splineTo(new Vector2d(29.5, -60.5), Math.toRadians(0))
                 .splineToConstantHeading(new Vector2d(40, -32), Math.toRadians(90))
                 .build();
 
@@ -74,8 +74,8 @@ public class RedNoCarusel extends LinearOpMode {
                 .addTemporalMarker(4, () -> liftPosition = 0)
                 .waitSeconds(1)
                 .setReversed(true)
-                .splineTo(new Vector2d(11.67, -62), Math.toRadians(0))
-                .splineTo(new Vector2d(29.5, -62), Math.toRadians(0))
+                .splineTo(new Vector2d(11.67, -60.5), Math.toRadians(0))
+                .splineTo(new Vector2d(29.5, -60.5), Math.toRadians(0))
                 .splineToConstantHeading(new Vector2d(40, -32), Math.toRadians(90))
                 .build();
 
@@ -87,8 +87,8 @@ public class RedNoCarusel extends LinearOpMode {
                 .addTemporalMarker(4, () -> liftPosition = 0)
                 .waitSeconds(1)
                 .setReversed(true)
-                .splineTo(new Vector2d(11.67, -62), Math.toRadians(0))
-                .splineTo(new Vector2d(29.5, -62), Math.toRadians(0))
+                .splineTo(new Vector2d(11.67, -60.5), Math.toRadians(0))
+                .splineTo(new Vector2d(29.5, -60.5), Math.toRadians(0))
                 .splineToConstantHeading(new Vector2d(40, -32), Math.toRadians(90))
                 .build();
 

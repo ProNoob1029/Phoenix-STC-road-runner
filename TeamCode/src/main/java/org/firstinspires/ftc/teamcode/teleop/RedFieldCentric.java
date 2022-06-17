@@ -182,7 +182,7 @@ public class RedFieldCentric extends LinearOpMode {
     }
 
     public void intakes(){
-        intake.setPower(gamepad2.right_trigger - gamepad2.left_trigger);
+        intake.setPower(-gamepad2.right_trigger + gamepad2.left_trigger);
 
         if(gamepad2.right_bumper || gamepad2.left_bumper){
             intake2.setMode(DcMotor.RunMode.RUN_USING_ENCODER);

@@ -34,8 +34,8 @@ public class MeepMeepTesting {
                                 //.addTemporalMarker(10.5, () -> liftPosition = 0)
                                 .waitSeconds(1)
                                 .setReversed(true)
-                                .splineTo(new Vector2d(11.67, -60.5), Math.toRadians(0))
-                                .splineTo(new Vector2d(40, -60.5), Math.toRadians(0))
+                                .splineTo(new Vector2d(11.67, -62), Math.toRadians(0))
+                                .splineTo(new Vector2d(40, -62), Math.toRadians(0))
                                 .build()
                 );
 
@@ -57,8 +57,8 @@ public class MeepMeepTesting {
                                 //.addTemporalMarker(4, () -> liftPosition = 0)
                                 .waitSeconds(1)
                                 .setReversed(true)
-                                .splineTo(new Vector2d(11.67, -60.5), Math.toRadians(0))
-                                .splineTo(new Vector2d(29.5, -60.5), Math.toRadians(0))
+                                .splineTo(new Vector2d(11.67, -62), Math.toRadians(0))
+                                .splineTo(new Vector2d(29.5, -62), Math.toRadians(0))
                                 .splineToConstantHeading(new Vector2d(40, -32), Math.toRadians(90))
                                 .build()
                 );
@@ -87,8 +87,8 @@ public class MeepMeepTesting {
                                 //.addTemporalMarker(10.7, () -> liftPosition = 0)
                                 .waitSeconds(1)
                                 .setReversed(true)
-                                .splineTo(new Vector2d(11.67, 60.5), Math.toRadians(0))
-                                .splineTo(new Vector2d(40, 60.5), Math.toRadians(0))
+                                .splineTo(new Vector2d(11.67, 62), Math.toRadians(0))
+                                .splineTo(new Vector2d(40, 62), Math.toRadians(0))
                                 .build()
                 );
 
@@ -110,8 +110,8 @@ public class MeepMeepTesting {
                                 //.addTemporalMarker(4, () -> liftPosition = 0)
                                 .waitSeconds(1)
                                 .setReversed(true)
-                                .splineTo(new Vector2d(11.67, 60.5), Math.toRadians(0))
-                                .splineTo(new Vector2d(29.5, 60.5), Math.toRadians(0))
+                                .splineTo(new Vector2d(11.67, 62), Math.toRadians(0))
+                                .splineTo(new Vector2d(29.5, 62), Math.toRadians(0))
                                 .splineToConstantHeading(new Vector2d(40, 32), Math.toRadians(270))
                                 .build()
                 );
@@ -139,8 +139,8 @@ public class MeepMeepTesting {
                                 //.addTemporalMarker(10.5, () -> liftPosition = 0)
                                 .waitSeconds(1)
                                 .setReversed(true)
-                                .splineTo(new Vector2d(11.67, -60.5), Math.toRadians(0))
-                                .splineTo(new Vector2d(40, -60.5), Math.toRadians(0))
+                                .splineTo(new Vector2d(11.67, -62), Math.toRadians(0))
+                                .splineTo(new Vector2d(40, -62), Math.toRadians(0))
                                 .build()
                 );
 
@@ -161,8 +161,8 @@ public class MeepMeepTesting {
                                 //.addTemporalMarker(4, () -> liftPosition = 0)
                                 .waitSeconds(1)
                                 .setReversed(true)
-                                .splineTo(new Vector2d(11.67, -60.5), Math.toRadians(0))
-                                .splineTo(new Vector2d(29.5, -60.5), Math.toRadians(0))
+                                .splineTo(new Vector2d(11.67, -62), Math.toRadians(0))
+                                .splineTo(new Vector2d(29.5, -62), Math.toRadians(0))
                                 .splineToConstantHeading(new Vector2d(40, -32), Math.toRadians(90))
                                 .build()
                 );
@@ -190,8 +190,8 @@ public class MeepMeepTesting {
                                 //.addTemporalMarker(10.7, () -> liftPosition = 0)
                                 .waitSeconds(1)
                                 .setReversed(true)
-                                .splineTo(new Vector2d(11.67, 60.5), Math.toRadians(0))
-                                .splineTo(new Vector2d(40, 60.5), Math.toRadians(0))
+                                .splineTo(new Vector2d(11.67, 62), Math.toRadians(0))
+                                .splineTo(new Vector2d(40, 62), Math.toRadians(0))
                                 .build()
                 );
 
@@ -212,8 +212,8 @@ public class MeepMeepTesting {
                                 //.addTemporalMarker(4, () -> liftPosition = 0)
                                 .waitSeconds(1)
                                 .setReversed(true)
-                                .splineTo(new Vector2d(11.67, 60.5), Math.toRadians(0))
-                                .splineTo(new Vector2d(29.5, 60.5), Math.toRadians(0))
+                                .splineTo(new Vector2d(11.67, 62), Math.toRadians(0))
+                                .splineTo(new Vector2d(29.5, 62), Math.toRadians(0))
                                 .splineToConstantHeading(new Vector2d(40, 32), Math.toRadians(270))
                                 .build()
                 );*/

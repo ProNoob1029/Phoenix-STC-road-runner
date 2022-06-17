@@ -65,7 +65,7 @@ public class CameraDetectionTest extends LinearOpMode {
         Mat yellow_mask = new Mat();
         Mat temp= new Mat();
         Mat region1_Cb, region2_Cb, region3_Cb;
-        Scalar yellow_lower = new Scalar(0, 100, 100);
+        Scalar yellow_lower = new Scalar(80, 100, 100);
         Scalar yellow_upper = new Scalar(100, 255, 255);
         Scalar blue = new Scalar(0, 0, 255);
         Rect reg1rect = new Rect(new Point(0,0), new Point(320.0/3,240));

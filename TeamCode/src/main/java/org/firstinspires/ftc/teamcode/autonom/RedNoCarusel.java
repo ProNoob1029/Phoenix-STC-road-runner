@@ -2,6 +2,8 @@ package org.firstinspires.ftc.teamcode.autonom;
 
 import static org.opencv.core.Core.inRange;
 
+import com.acmerobotics.dashboard.FtcDashboard;
+import com.acmerobotics.dashboard.telemetry.MultipleTelemetry;
 import com.acmerobotics.roadrunner.geometry.Pose2d;
 import com.acmerobotics.roadrunner.geometry.Vector2d;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
@@ -42,6 +44,9 @@ public class RedNoCarusel extends LinearOpMode {
 
     @Override
     public void runOpMode() throws InterruptedException {
+
+        telemetry = new MultipleTelemetry(telemetry, FtcDashboard.getInstance().getTelemetry());
+
         SampleMecanumDrive drive = new SampleMecanumDrive(hardwareMap);
 
         Pose2d startPose = new Pose2d(11.5, -61.7, Math.toRadians(90));
@@ -61,8 +66,8 @@ public class RedNoCarusel extends LinearOpMode {
                 .addTemporalMarker(4, () -> liftPosition = 0)
                 .waitSeconds(1)
                 .setReversed(true)
-                .splineTo(new Vector2d(11.67, -60.5), Math.toRadians(0))
-                .splineTo(new Vector2d(29.5, -60.5), Math.toRadians(0))
+                .splineTo(new Vector2d(11.67, -61.5), Math.toRadians(0))
+                .splineTo(new Vector2d(29.5, -61.5), Math.toRadians(0))
                 .splineToConstantHeading(new Vector2d(40, -32), Math.toRadians(90))
                 .build();
 
@@ -74,8 +79,8 @@ public class RedNoCarusel extends LinearOpMode {
                 .addTemporalMarker(4, () -> liftPosition = 0)
                 .waitSeconds(1)
                 .setReversed(true)
-                .splineTo(new Vector2d(11.67, -60.5), Math.toRadians(0))
-                .splineTo(new Vector2d(29.5, -60.5), Math.toRadians(0))
+                .splineTo(new Vector2d(11.67, -61.5), Math.toRadians(0))
+                .splineTo(new Vector2d(29.5, -61.5), Math.toRadians(0))
                 .splineToConstantHeading(new Vector2d(40, -32), Math.toRadians(90))
                 .build();
 
@@ -87,8 +92,8 @@ public class RedNoCarusel extends LinearOpMode {
                 .addTemporalMarker(4, () -> liftPosition = 0)
                 .waitSeconds(1)
                 .setReversed(true)
-                .splineTo(new Vector2d(11.67, -60.5), Math.toRadians(0))
-                .splineTo(new Vector2d(29.5, -60.5), Math.toRadians(0))
+                .splineTo(new Vector2d(11.67, -61.5), Math.toRadians(0))
+                .splineTo(new Vector2d(29.5, -61.5), Math.toRadians(0))
                 .splineToConstantHeading(new Vector2d(40, -32), Math.toRadians(90))
                 .build();
 
@@ -161,7 +166,7 @@ public class RedNoCarusel extends LinearOpMode {
         Mat yellow_mask = new Mat();
         Mat temp= new Mat();
         Mat region1_Cb, region2_Cb, region3_Cb;
-        Scalar yellow_lower = new Scalar(0, 100, 100);
+        Scalar yellow_lower = new Scalar(80, 100, 100);
         Scalar yellow_upper = new Scalar(100, 255, 255);
         Scalar blue = new Scalar(0, 0, 255);
         Rect reg1rect = new Rect(new Point(0,0), new Point(320.0/3,240));

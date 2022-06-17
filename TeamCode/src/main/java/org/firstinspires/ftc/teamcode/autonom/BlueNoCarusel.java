@@ -6,7 +6,6 @@ import com.acmerobotics.roadrunner.geometry.Pose2d;
 import com.acmerobotics.roadrunner.geometry.Vector2d;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
@@ -51,10 +50,11 @@ public class BlueNoCarusel extends LinearOpMode {
 
         lift = new DcMotorServo(hardwareMap,"lift",13.79f,28);
 
-        DcMotorEx carusel = hardwareMap.get(DcMotorEx.class, "carusel");
+        //DcMotorEx carusel = hardwareMap.get(DcMotorEx.class, "carusel");
         cupa = hardwareMap.get(Servo.class, "cupa");
 
         TrajectorySequence trajSeq3 = drive.trajectorySequenceBuilder(startPose)
+                .setTangent(Math.toRadians(180))
                 .splineToLinearHeading(new Pose2d(-11.67, 36, Math.toRadians(270)), Math.toRadians(270))
                 .addTemporalMarker(2.5, () -> cupa.setPosition(0.75))
                 .addTemporalMarker(3.5, () -> cupa.setPosition(1))
@@ -63,10 +63,11 @@ public class BlueNoCarusel extends LinearOpMode {
                 .setReversed(true)
                 .splineTo(new Vector2d(11.67, 62), Math.toRadians(0))
                 .splineTo(new Vector2d(29.5, 62), Math.toRadians(0))
-                .splineToConstantHeading(new Vector2d(39, 32), Math.toRadians(270))
+                .splineToConstantHeading(new Vector2d(40, 32), Math.toRadians(270))
                 .build();
 
         TrajectorySequence trajSeq2 = drive.trajectorySequenceBuilder(startPose)
+                .setTangent(Math.toRadians(180))
                 .splineToLinearHeading(new Pose2d(-11.67, 37, Math.toRadians(270)), Math.toRadians(270))
                 .addTemporalMarker(2.5, () -> cupa.setPosition(0.75))
                 .addTemporalMarker(3.5, () -> cupa.setPosition(1))
@@ -75,10 +76,11 @@ public class BlueNoCarusel extends LinearOpMode {
                 .setReversed(true)
                 .splineTo(new Vector2d(11.67, 62), Math.toRadians(0))
                 .splineTo(new Vector2d(29.5, 62), Math.toRadians(0))
-                .splineToConstantHeading(new Vector2d(39, 32), Math.toRadians(270))
+                .splineToConstantHeading(new Vector2d(40, 32), Math.toRadians(270))
                 .build();
 
         TrajectorySequence trajSeq1 = drive.trajectorySequenceBuilder(startPose)
+                .setTangent(Math.toRadians(180))
                 .splineToLinearHeading(new Pose2d(-11.67, 38, Math.toRadians(270)), Math.toRadians(270))
                 .addTemporalMarker(2.5, () -> cupa.setPosition(0.75))
                 .addTemporalMarker(3.5, () -> cupa.setPosition(1))
@@ -87,7 +89,7 @@ public class BlueNoCarusel extends LinearOpMode {
                 .setReversed(true)
                 .splineTo(new Vector2d(11.67, 62), Math.toRadians(0))
                 .splineTo(new Vector2d(29.5, 62), Math.toRadians(0))
-                .splineToConstantHeading(new Vector2d(39, 32), Math.toRadians(270))
+                .splineToConstantHeading(new Vector2d(40, 32), Math.toRadians(270))
                 .build();
 
         int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());

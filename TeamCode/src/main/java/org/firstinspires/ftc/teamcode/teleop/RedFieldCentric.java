@@ -207,7 +207,10 @@ public class RedFieldCentric extends LinearOpMode {
         telemetry.addData("rightFront", drive.rightFront.getPower());
         telemetry.addData("leftRear", drive.leftRear.getPower());
         telemetry.addData("rightRear", drive.rightRear.getPower());
-        telemetry.addData("heading", drive.getPoseEstimate().getHeading());
+        Pose2d poseEstimate = drive.getPoseEstimate();
+        telemetry.addData("x", poseEstimate.getX());
+        telemetry.addData("y", poseEstimate.getY());
+        telemetry.addData("heading", poseEstimate.getHeading());
         telemetry.update();
     }
 

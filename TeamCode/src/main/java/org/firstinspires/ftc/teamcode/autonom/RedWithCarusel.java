@@ -55,6 +55,7 @@ public class RedWithCarusel extends LinearOpMode {
         cupa = hardwareMap.get(Servo.class, "cupa");
 
         TrajectorySequence trajSeq3 = drive.trajectorySequenceBuilder(startPose)
+                .setTangent(Math.toRadians(135))
                 .splineToLinearHeading(new Pose2d(-58, -58, Math.toRadians(135)), Math.toRadians(225))
                 .addTemporalMarker(2.3, () -> carusel.setPower(0.5))
                 .addTemporalMarker(5.3, () -> carusel.setPower(0))
@@ -68,10 +69,11 @@ public class RedWithCarusel extends LinearOpMode {
                 .waitSeconds(1)
                 .setReversed(true)
                 .splineTo(new Vector2d(11.67, -62), Math.toRadians(0))
-                .splineTo(new Vector2d(39, -62), Math.toRadians(0))
+                .splineTo(new Vector2d(40, -62), Math.toRadians(0))
                 .build();
 
         TrajectorySequence trajSeq2 = drive.trajectorySequenceBuilder(startPose)
+                .setTangent(Math.toRadians(135))
                 .splineToLinearHeading(new Pose2d(-58, -58, Math.toRadians(135)), Math.toRadians(225))
                 .addTemporalMarker(2.3, () -> carusel.setPower(0.5))
                 .addTemporalMarker(5.3, () -> carusel.setPower(0))
@@ -85,10 +87,11 @@ public class RedWithCarusel extends LinearOpMode {
                 .waitSeconds(1)
                 .setReversed(true)
                 .splineTo(new Vector2d(11.67, -62), Math.toRadians(0))
-                .splineTo(new Vector2d(39, -62), Math.toRadians(0))
+                .splineTo(new Vector2d(40, -62), Math.toRadians(0))
                 .build();
 
         TrajectorySequence trajSeq1 = drive.trajectorySequenceBuilder(startPose)
+                .setTangent(Math.toRadians(135))
                 .splineToLinearHeading(new Pose2d(-58, -58, Math.toRadians(135)), Math.toRadians(225))
                 .addTemporalMarker(2.3, () -> carusel.setPower(0.5))
                 .addTemporalMarker(5.3, () -> carusel.setPower(0))
@@ -102,7 +105,7 @@ public class RedWithCarusel extends LinearOpMode {
                 .waitSeconds(1)
                 .setReversed(true)
                 .splineTo(new Vector2d(11.67, -62), Math.toRadians(0))
-                .splineTo(new Vector2d(39, -62), Math.toRadians(0))
+                .splineTo(new Vector2d(40, -62), Math.toRadians(0))
                 .build();
 
         int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());

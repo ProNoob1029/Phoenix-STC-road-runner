@@ -32,7 +32,7 @@ public class DcMotorServo {
         //motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
     }
 
-    public DcMotorServo(HardwareMap h, String name, int ratio, int cpr, float ll, float ul){
+    /*public DcMotorServo(HardwareMap h, String name, int ratio, int cpr, float ll, float ul){
         this.motor = h.get(DcMotorEx.class, name);
         this.ratio = ratio;
         this.cpr = cpr;
@@ -50,7 +50,7 @@ public class DcMotorServo {
 //        motor.setPIDFCoefficients(DcMotor.RunMode.RUN_TO_POSITION,new PIDFCoefficients(1.17, .117, 0,11.7));
 
         motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-    }
+    }*/
 
     public void setAngle(float angle, float speed){
         angle = Math.max(Math.min(angle,upper_limit),lower_limit);
@@ -80,7 +80,7 @@ public class DcMotorServo {
 
     }
 
-    public void setAngleAuto(float angle, float speed){
+    /*public void setAngleAuto(float angle, float speed){
         angle = Math.max(Math.min(angle,upper_limit),lower_limit);
         target = (int)(angle * this.ratio * this.cpr)/360;
         motor.setTargetPosition(
@@ -106,5 +106,5 @@ public class DcMotorServo {
         //motor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
 
-    }
+    }*/
 }

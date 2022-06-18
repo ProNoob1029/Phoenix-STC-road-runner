@@ -49,7 +49,7 @@ public class BlueNoCarusel extends LinearOpMode {
 
         SampleMecanumDrive drive = new SampleMecanumDrive(hardwareMap);
 
-        Pose2d startPose = new Pose2d(11.5, 61.7, Math.toRadians(270));
+        Pose2d startPose = new Pose2d(11.5, 62, Math.toRadians(270));
 
         drive.setPoseEstimate(startPose);
 
@@ -60,7 +60,7 @@ public class BlueNoCarusel extends LinearOpMode {
 
         TrajectorySequence trajSeq3 = drive.trajectorySequenceBuilder(startPose)
                 .setTangent(Math.toRadians(180))
-                .splineToLinearHeading(new Pose2d(-11.67, 36, Math.toRadians(270)), Math.toRadians(270))
+                .splineToLinearHeading(new Pose2d(-11.67, 35.6, Math.toRadians(270)), Math.toRadians(270))
                 .addTemporalMarker(2.5, () -> cupa.setPosition(0.75))
                 .addTemporalMarker(3.5, () -> cupa.setPosition(1))
                 .addTemporalMarker(4, () -> liftPosition = 0)
@@ -68,7 +68,7 @@ public class BlueNoCarusel extends LinearOpMode {
                 .setReversed(true)
                 .splineTo(new Vector2d(11.67, 61.5), Math.toRadians(0))
                 .splineTo(new Vector2d(29.5, 61.5), Math.toRadians(0))
-                .splineToConstantHeading(new Vector2d(40, 32), Math.toRadians(270))
+                .splineToConstantHeading(new Vector2d(41, 32), Math.toRadians(270))
                 .build();
 
         TrajectorySequence trajSeq2 = drive.trajectorySequenceBuilder(startPose)
@@ -81,7 +81,7 @@ public class BlueNoCarusel extends LinearOpMode {
                 .setReversed(true)
                 .splineTo(new Vector2d(11.67, 61.5), Math.toRadians(0))
                 .splineTo(new Vector2d(29.5, 61.5), Math.toRadians(0))
-                .splineToConstantHeading(new Vector2d(40, 32), Math.toRadians(270))
+                .splineToConstantHeading(new Vector2d(41, 32), Math.toRadians(270))
                 .build();
 
         TrajectorySequence trajSeq1 = drive.trajectorySequenceBuilder(startPose)
@@ -94,7 +94,7 @@ public class BlueNoCarusel extends LinearOpMode {
                 .setReversed(true)
                 .splineTo(new Vector2d(11.67, 61.5), Math.toRadians(0))
                 .splineTo(new Vector2d(29.5, 61.5), Math.toRadians(0))
-                .splineToConstantHeading(new Vector2d(40, 32), Math.toRadians(270))
+                .splineToConstantHeading(new Vector2d(41, 32), Math.toRadians(270))
                 .build();
 
         int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
@@ -195,7 +195,7 @@ public class BlueNoCarusel extends LinearOpMode {
             int maxavg = Math.max(avg1,Math.max(avg2,avg3));
 
             if(maxavg == avg1){
-                CapstonePosition.Position = 3;
+                CapstonePosition.Position = 1;
             }
 
             if(maxavg == avg2){
@@ -203,7 +203,7 @@ public class BlueNoCarusel extends LinearOpMode {
             }
 
             if(maxavg == avg3){
-                CapstonePosition.Position = 1;
+                CapstonePosition.Position = 3;
             }
 
             return input;

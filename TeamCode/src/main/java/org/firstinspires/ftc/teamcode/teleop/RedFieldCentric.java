@@ -90,6 +90,8 @@ public class RedFieldCentric extends LinearOpMode {
 
             if (gamepad2.x)
                 cupa.setPosition(0.70);
+            else if(gamepad2.left_stick_y > 0)
+                cupa.setPosition(1 - gamepad2.left_stick_y * 0.3);
             else cupa.setPosition(1);
         }
     }

@@ -62,7 +62,7 @@ public class BlueWithCarusel extends LinearOpMode {
         TrajectorySequence trajSeq3 = drive.trajectorySequenceBuilder(startPose)
                 .setTangent(Math.toRadians(225))
                 .splineToLinearHeading(new Pose2d(-58, 58, Math.toRadians(45)), Math.toRadians(135))
-                .addTemporalMarker(2.6, () -> carusel.setPower(-0.5))
+                .addTemporalMarker(2.6, () -> carusel.setPower(-0.4))
                 .addTemporalMarker(5.6, () -> carusel.setPower(0))
                 .waitSeconds(3)
                 .setTangent(0)
@@ -74,13 +74,14 @@ public class BlueWithCarusel extends LinearOpMode {
                 .waitSeconds(1)
                 .setReversed(true)
                 .splineTo(new Vector2d(11.67, 61.5), Math.toRadians(0))
-                .splineTo(new Vector2d(40, 61.5), Math.toRadians(0))
+                .splineTo(new Vector2d(42, 61.5), Math.toRadians(0))
+                .waitSeconds(1)
                 .build();
 
         TrajectorySequence trajSeq2 = drive.trajectorySequenceBuilder(startPose)
                 .setTangent(Math.toRadians(225))
                 .splineToLinearHeading(new Pose2d(-58, 58, Math.toRadians(45)), Math.toRadians(135))
-                .addTemporalMarker(2.6, () -> carusel.setPower(-0.5))
+                .addTemporalMarker(2.6, () -> carusel.setPower(-0.4))
                 .addTemporalMarker(5.6, () -> carusel.setPower(0))
                 .waitSeconds(3)
                 .setTangent(0)
@@ -92,13 +93,14 @@ public class BlueWithCarusel extends LinearOpMode {
                 .waitSeconds(1)
                 .setReversed(true)
                 .splineTo(new Vector2d(11.67, 61.5), Math.toRadians(0))
-                .splineTo(new Vector2d(40, 61.5), Math.toRadians(0))
+                .splineTo(new Vector2d(42, 61.5), Math.toRadians(0))
+                .waitSeconds(1)
                 .build();
 
         TrajectorySequence trajSeq1 = drive.trajectorySequenceBuilder(startPose)
                 .setTangent(Math.toRadians(225))
                 .splineToLinearHeading(new Pose2d(-58, 58, Math.toRadians(45)), Math.toRadians(135))
-                .addTemporalMarker(2.6, () -> carusel.setPower(-0.5))
+                .addTemporalMarker(2.6, () -> carusel.setPower(-0.4))
                 .addTemporalMarker(5.6, () -> carusel.setPower(0))
                 .waitSeconds(3)
                 .setTangent(0)
@@ -110,7 +112,8 @@ public class BlueWithCarusel extends LinearOpMode {
                 .waitSeconds(1)
                 .setReversed(true)
                 .splineTo(new Vector2d(11.67, 61.5), Math.toRadians(0))
-                .splineTo(new Vector2d(40, 61.5), Math.toRadians(0))
+                .splineTo(new Vector2d(42, 61.5), Math.toRadians(0))
+                .waitSeconds(1)
                 .build();
 
         int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
@@ -213,7 +216,7 @@ public class BlueWithCarusel extends LinearOpMode {
             int maxavg = Math.max(avg1,Math.max(avg2,avg3));
 
             if(maxavg == avg1){
-                CapstonePosition.Position = 3;
+                CapstonePosition.Position = 1;
             }
 
             if(maxavg == avg2){
@@ -221,7 +224,7 @@ public class BlueWithCarusel extends LinearOpMode {
             }
 
             if(maxavg == avg3){
-                CapstonePosition.Position = 1;
+                CapstonePosition.Position = 3;
             }
 
             return input;

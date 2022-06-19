@@ -49,7 +49,7 @@ public class BlueNoCarusel extends LinearOpMode {
 
         SampleMecanumDrive drive = new SampleMecanumDrive(hardwareMap);
 
-        Pose2d startPose = new Pose2d(11.5, 62, Math.toRadians(270));
+        Pose2d startPose = new Pose2d(11.5, 62.5, Math.toRadians(270));
 
         drive.setPoseEstimate(startPose);
 
@@ -59,12 +59,14 @@ public class BlueNoCarusel extends LinearOpMode {
         cupa = hardwareMap.get(Servo.class, "cupa");
 
         TrajectorySequence trajSeq3 = drive.trajectorySequenceBuilder(startPose)
+                //.waitSeconds(9)
                 .setTangent(Math.toRadians(180))
-                .splineToLinearHeading(new Pose2d(-11.67, 35.6, Math.toRadians(270)), Math.toRadians(270))
-                .addTemporalMarker(2.5, () -> cupa.setPosition(0.75))
-                .addTemporalMarker(3.5, () -> cupa.setPosition(1))
-                .addTemporalMarker(4, () -> liftPosition = 0)
-                .waitSeconds(1)
+                .splineToLinearHeading(new Pose2d(-11.67, 35.8, Math.toRadians(270)), Math.toRadians(270))
+                //.addTemporalMarker(9, () -> liftPosition = 1500)
+                .addTemporalMarker(3.5, () -> cupa.setPosition(0.75))
+                .addTemporalMarker(4.5, () -> cupa.setPosition(1))
+                .addTemporalMarker(5, () -> liftPosition = 0)
+                .waitSeconds(2)
                 .setReversed(true)
                 .splineTo(new Vector2d(11.67, 61.5), Math.toRadians(0))
                 .splineTo(new Vector2d(29.5, 61.5), Math.toRadians(0))
@@ -72,12 +74,14 @@ public class BlueNoCarusel extends LinearOpMode {
                 .build();
 
         TrajectorySequence trajSeq2 = drive.trajectorySequenceBuilder(startPose)
+                //.waitSeconds(9)
                 .setTangent(Math.toRadians(180))
                 .splineToLinearHeading(new Pose2d(-11.67, 37, Math.toRadians(270)), Math.toRadians(270))
-                .addTemporalMarker(2.5, () -> cupa.setPosition(0.75))
-                .addTemporalMarker(3.5, () -> cupa.setPosition(1))
-                .addTemporalMarker(4, () -> liftPosition = 0)
-                .waitSeconds(1)
+                //.addTemporalMarker(9, () -> liftPosition = 950)
+                .addTemporalMarker(3.5, () -> cupa.setPosition(0.75))
+                .addTemporalMarker(4.5, () -> cupa.setPosition(1))
+                .addTemporalMarker(5, () -> liftPosition = 0)
+                .waitSeconds(2)
                 .setReversed(true)
                 .splineTo(new Vector2d(11.67, 61.5), Math.toRadians(0))
                 .splineTo(new Vector2d(29.5, 61.5), Math.toRadians(0))
@@ -85,12 +89,14 @@ public class BlueNoCarusel extends LinearOpMode {
                 .build();
 
         TrajectorySequence trajSeq1 = drive.trajectorySequenceBuilder(startPose)
+                //.waitSeconds(9)
                 .setTangent(Math.toRadians(180))
                 .splineToLinearHeading(new Pose2d(-11.67, 38, Math.toRadians(270)), Math.toRadians(270))
-                .addTemporalMarker(2.5, () -> cupa.setPosition(0.75))
-                .addTemporalMarker(3.5, () -> cupa.setPosition(1))
-                .addTemporalMarker(4, () -> liftPosition = 0)
-                .waitSeconds(1)
+                //.addTemporalMarker(9, () -> liftPosition = 450)
+                .addTemporalMarker(3.5, () -> cupa.setPosition(0.75))
+                .addTemporalMarker(4.5, () -> cupa.setPosition(1))
+                .addTemporalMarker(5, () -> liftPosition = 0)
+                .waitSeconds(2)
                 .setReversed(true)
                 .splineTo(new Vector2d(11.67, 61.5), Math.toRadians(0))
                 .splineTo(new Vector2d(29.5, 61.5), Math.toRadians(0))

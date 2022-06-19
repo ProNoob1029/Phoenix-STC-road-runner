@@ -33,7 +33,8 @@ public class BlueFieldCentric extends LinearOpMode {
     double driveSpeed = 1;
     //double lastStartPressed = 0;
     double lastLiftIncrease = 0;
-    double caruselPower = 0.5;
+    double caruselLowPower = -0.5;
+    double caruselHighPower= -0.7;
 
     int position = 0;
     int level1 = 450;
@@ -83,9 +84,9 @@ public class BlueFieldCentric extends LinearOpMode {
             showTelemetry();
 
             if(gamepad2.a)
-                carusel.setPower(caruselPower);
+                carusel.setPower(caruselHighPower);
             else if(gamepad2.b)
-                carusel.setPower(-caruselPower);
+                carusel.setPower(caruselLowPower);
             else carusel.setPower(0);
 
             if (gamepad2.x)

@@ -8,7 +8,6 @@ import com.acmerobotics.roadrunner.geometry.Pose2d;
 import com.acmerobotics.roadrunner.geometry.Vector2d;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
@@ -28,8 +27,8 @@ import org.openftc.easyopencv.OpenCvCameraRotation;
 import org.openftc.easyopencv.OpenCvPipeline;
 import org.openftc.easyopencv.OpenCvWebcam;
 
-@Autonomous(group = "drive", name = "red with carusel and storage")
-public class RedWithCaruselAndStorage extends LinearOpMode {
+@Autonomous(group = "drive", name = "blue no carusel 9 sec wait")
+public class BlueNoCarusel9SecWait extends LinearOpMode {
 
     DcMotorServo lift;
     Servo cupa;
@@ -50,73 +49,58 @@ public class RedWithCaruselAndStorage extends LinearOpMode {
 
         SampleMecanumDrive drive = new SampleMecanumDrive(hardwareMap);
 
-        Pose2d startPose = new Pose2d(-35, -61.7, Math.toRadians(90));
+        Pose2d startPose = new Pose2d(11.5, 62.5, Math.toRadians(270));
 
         drive.setPoseEstimate(startPose);
 
         lift = new DcMotorServo(hardwareMap,"lift",13.79f,28);
 
-        DcMotorEx carusel = hardwareMap.get(DcMotorEx.class, "carusel");
+        //DcMotorEx carusel = hardwareMap.get(DcMotorEx.class, "carusel");
         cupa = hardwareMap.get(Servo.class, "cupa");
 
         TrajectorySequence trajSeq3 = drive.trajectorySequenceBuilder(startPose)
-                .setTangent(Math.toRadians(135))
-                .splineToLinearHeading(new Pose2d(-58, -58, Math.toRadians(135)), Math.toRadians(225))
-                .addTemporalMarker(2.3, () -> carusel.setPower(0.4))
-                .addTemporalMarker(5.3, () -> carusel.setPower(0))
-                .waitSeconds(3)
-                .setTangent(Math.toRadians(90))
-                .splineToSplineHeading(new Pose2d(-58, -40, Math.toRadians(67)), Math.toRadians(90))
-                .splineToSplineHeading(new Pose2d(-26, -23.34, Math.toRadians(0)), Math.toRadians(0))
-                .addTemporalMarker(6.9, () -> liftPosition = 1500)
-                .addTemporalMarker(9.3, () -> cupa.setPosition(0.75))
-                .addTemporalMarker(10.2, () -> cupa.setPosition(1))
-                .addTemporalMarker(10.7, () -> liftPosition = 0)
-                .waitSeconds(1)
+                .waitSeconds(9)
+                .setTangent(Math.toRadians(180))
+                .splineToLinearHeading(new Pose2d(-11.67, 35.8, Math.toRadians(270)), Math.toRadians(270))
+                .addTemporalMarker(9, () -> liftPosition = 1500)
+                .addTemporalMarker(12.5, () -> cupa.setPosition(0.75))
+                .addTemporalMarker(13.5, () -> cupa.setPosition(1))
+                .addTemporalMarker(14, () -> liftPosition = 0)
+                .waitSeconds(2)
                 .setReversed(true)
-                .splineToConstantHeading(new Vector2d(-40, -23.34), Math.toRadians(180))
-                .splineToConstantHeading(new Vector2d(-60, -35), Math.toRadians(270))
-                .waitSeconds(1)
+                .splineTo(new Vector2d(11.67, 61.5), Math.toRadians(0))
+                .splineTo(new Vector2d(29.5, 61.5), Math.toRadians(0))
+                .splineToConstantHeading(new Vector2d(41, 32), Math.toRadians(270))
                 .build();
 
         TrajectorySequence trajSeq2 = drive.trajectorySequenceBuilder(startPose)
-                .setTangent(Math.toRadians(135))
-                .splineToLinearHeading(new Pose2d(-58, -58, Math.toRadians(135)), Math.toRadians(225))
-                .addTemporalMarker(2.3, () -> carusel.setPower(0.4))
-                .addTemporalMarker(5.3, () -> carusel.setPower(0))
-                .waitSeconds(3)
-                .setTangent(Math.toRadians(90))
-                .splineToSplineHeading(new Pose2d(-58, -40, Math.toRadians(67)), Math.toRadians(90))
-                .splineToSplineHeading(new Pose2d(-27, -23.34, Math.toRadians(0)), Math.toRadians(0))
-                .addTemporalMarker(6.9, () -> liftPosition = 950)
-                .addTemporalMarker(9.3, () -> cupa.setPosition(0.75))
-                .addTemporalMarker(10.2, () -> cupa.setPosition(1))
-                .addTemporalMarker(10.7, () -> liftPosition = 0)
-                .waitSeconds(1)
+                .waitSeconds(9)
+                .setTangent(Math.toRadians(180))
+                .splineToLinearHeading(new Pose2d(-11.67, 37, Math.toRadians(270)), Math.toRadians(270))
+                .addTemporalMarker(9, () -> liftPosition = 950)
+                .addTemporalMarker(12.5, () -> cupa.setPosition(0.75))
+                .addTemporalMarker(13.5, () -> cupa.setPosition(1))
+                .addTemporalMarker(14, () -> liftPosition = 0)
+                .waitSeconds(2)
                 .setReversed(true)
-                .splineToConstantHeading(new Vector2d(-40, -23.34), Math.toRadians(180))
-                .splineToConstantHeading(new Vector2d(-60, -35), Math.toRadians(270))
-                .waitSeconds(1)
+                .splineTo(new Vector2d(11.67, 61.5), Math.toRadians(0))
+                .splineTo(new Vector2d(29.5, 61.5), Math.toRadians(0))
+                .splineToConstantHeading(new Vector2d(41, 32), Math.toRadians(270))
                 .build();
 
         TrajectorySequence trajSeq1 = drive.trajectorySequenceBuilder(startPose)
-                .setTangent(Math.toRadians(135))
-                .splineToLinearHeading(new Pose2d(-58, -58, Math.toRadians(135)), Math.toRadians(225))
-                .addTemporalMarker(2.3, () -> carusel.setPower(0.4))
-                .addTemporalMarker(5.3, () -> carusel.setPower(0))
-                .waitSeconds(3)
-                .setTangent(Math.toRadians(90))
-                .splineToSplineHeading(new Pose2d(-58, -40, Math.toRadians(67)), Math.toRadians(90))
-                .splineToSplineHeading(new Pose2d(-28, -23.34, Math.toRadians(0)), Math.toRadians(0))
-                .addTemporalMarker(6.9, () -> liftPosition = 450)
-                .addTemporalMarker(9.3, () -> cupa.setPosition(0.75))
-                .addTemporalMarker(10.2, () -> cupa.setPosition(1))
-                .addTemporalMarker(10.7, () -> liftPosition = 0)
-                .waitSeconds(1)
+                .waitSeconds(9)
+                .setTangent(Math.toRadians(180))
+                .splineToLinearHeading(new Pose2d(-11.67, 38, Math.toRadians(270)), Math.toRadians(270))
+                .addTemporalMarker(9, () -> liftPosition = 450)
+                .addTemporalMarker(12.5, () -> cupa.setPosition(0.75))
+                .addTemporalMarker(13.5, () -> cupa.setPosition(1))
+                .addTemporalMarker(14, () -> liftPosition = 0)
+                .waitSeconds(2)
                 .setReversed(true)
-                .splineToConstantHeading(new Vector2d(-40, -23.34), Math.toRadians(180))
-                .splineToConstantHeading(new Vector2d(-60, -35), Math.toRadians(270))
-                .waitSeconds(1)
+                .splineTo(new Vector2d(11.67, 61.5), Math.toRadians(0))
+                .splineTo(new Vector2d(29.5, 61.5), Math.toRadians(0))
+                .splineToConstantHeading(new Vector2d(41, 32), Math.toRadians(270))
                 .build();
 
         int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
@@ -148,28 +132,26 @@ public class RedWithCaruselAndStorage extends LinearOpMode {
             // Don't burn CPU cycles busy-looping in this sample
             sleep(50);
         }
-
-        int position = CapstonePosition.Position;
-
-        //webcam.closeCameraDeviceAsync(() -> webcam.stopStreaming());
-
         if (isStopRequested()) return;
 
-        cupa.setPosition(1);
-        liftPosition = 0;
+        int position = CapstonePosition.Position;
+        //webcam.closeCameraDeviceAsync(() -> webcam.stopStreaming());
 
+        cupa.setPosition(1);
         switch (position){
             case 1:
                 drive.followTrajectorySequenceAsync(trajSeq1);
+                //liftPosition = 450;
                 break;
             case 2:
                 drive.followTrajectorySequenceAsync(trajSeq2);
+                //liftPosition = 950;
                 break;
             case 3:
                 drive.followTrajectorySequenceAsync(trajSeq3);
+                //liftPosition = 1500;
                 break;
         }
-
         boolean savePose = true;
 
         while (opModeIsActive() && !isStopRequested()){
